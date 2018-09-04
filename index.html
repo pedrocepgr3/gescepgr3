@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>gescepgr3v1819</title>
+		<link rel="stylesheet" type="text/css" href="default.css" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" type="text/css" href="global.css" />
+		<script src="js/modernizr.custom.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+    </head>
+
+<body onload="preparaEnlaces();">
+
+<div class="container">	
+			<!-- Codrops top bar -->
+			<div class="codrops-top clearfix">
+				<a class="icon-database" href="http://www.juntadeandalucia.es/educacion/portalseneca/web/seneca/inicio"><span>Séneca</span></a>
+				<span class="right"><a class="icon-mail2" href="https://correo.juntadeandalucia.es"><span>Correo corporativo</span></a></span>
+			</div>
+			<header>
+				<h1>Centro del Profesorado de Guadix<span>Gestión interna del equipo asesor</span></h1>	
+			</header>
+			<div class="main clearfix">
+
+<nav  id="menu" class="nav">	
+	<ul>
+		<li>
+			<a href="http://www.juntadeandalucia.es/educacion/portals/web/cep-guadix/" title="">
+				<span  class="icon"> <i aria-hidden="true"  class="icon-home3"></i></span><span>CEP</span>
+			</a>
+		</li>
+		<li>		
+			<a id='calendarios' target="_blank" href="https://calendar.google.com/calendar/render#main_7|week" title=""><span class="icon"> <i aria-hidden="true" class="icon-calendar"></i></span><span>Mi calendario</span></a>	
+		</li>	
+		<li>
+			<a id='planificacion' target="_blank" href="#" title=""><span  class="icon"><i  aria-hidden="true" class="icon-file-text"></i></span><span>Planificaci&oacute;n</span></a>
+		</li>
+        <li>
+			<a id='apuntar' target="_blank" href="#" title=""><span  class="icon"><i  aria-hidden="true" class="icon-pencil"></i></span><span>Apuntar</span></a>
+		</li>
+		<li>
+			<a id='semana' target="_blank" href="#" title=""><span  class="icon"><i  aria-hidden="true" class="icon-clipboard"></i></span><span>Tabla semanal</span></a>	
+		</li>
+		<li>
+			<a  href="./calendarios.html" target="_blank" title=""><span  class="icon"><i  aria-hidden="true" class="icon-eye"></i></span><span>Consultar</span></a>	
+		</li>
+	</ul>
+</nav>
+<script>
+			//  The function to change the class
+			var changeClass = function (r,className1,className2) {
+				var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
+				if( regex.test(r.className) ) {
+					r.className = r.className.replace(regex,' '+className2+' ');
+			    }
+			    else{
+					r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
+			    }
+			    return r.className;
+			};	
+
+			//  Creating our button in JS for smaller screens
+			var menuElements = document.getElementById('menu');
+			menuElements.insertAdjacentHTML('afterBegin','<button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>');
+
+			//  Toggle the class on click to show / hide the menu
+			document.getElementById('menutoggle').onclick = function() {
+				changeClass(this, 'navtoogle active', 'navtoogle');
+			}
+
+			// http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918
+			document.onclick = function(e) {
+				var mobileButton = document.getElementById('menutoggle'),
+					buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+
+				if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+					changeClass(mobileButton, 'navtoogle active', 'navtoogle');
+				}
+			}
+		
+</script>
+		<script>
+        function preparaEnlaces() {
+            // prepara la fecha tabla semanal
+            var d = new Date();
+            var n = d.toISOString().substr(0,10);
+            document.getElementById("semana").href = "https://docs.google.com/forms/d/e/1FAIpQLSfEASXeY-okTNkVLZgUNzeYIZEIBocTtVYIa6rvkhsq3QpH7Q/viewform?usp=pp_url&entry.798565384="+n;
+            // prepara la fecha de planificacion
+            var fp = new Date();
+            fp.setDate(d.getDate()+6);
+            var np = fp.toISOString().substr(0,10);
+            document.getElementById("planificacion").href = "https://docs.google.com/forms/d/e/1FAIpQLSeYq1QW7JIVDnZY1SMokbtzjMMhLtdFyGchl6vLpUpqdmQxKQ/viewform?usp=pp_url&entry.798565384="+np;
+            // prepara la fecha de apuntar
+            var fa = new Date();
+            var na = fa.toISOString().substr(0,10);
+            document.getElementById("apuntar").href = "https://docs.google.com/forms/d/e/1FAIpQLSdYmgt1ps8KMu8YAY-PtOb5btMxha4nSMoXYGaMkMqlXLCW9g/viewform?usp=pp_url&entry.484934603="+na+"&entry.1400701436=CEP+GUADIX+(GUADIX)&entry.1786007177=Trabajo+de+asesor%C3%ADa";
+        }
+
+		function abrirVentana(url) {
+			window.open(url, 'ayuda', 'toolbar=0,directories=no,location=no,menubar=no,scrollbars=yes,statusbar=no,tittlebar=no,width=400,height=400');
+		}
+        </script>
+</body>
+</html>
